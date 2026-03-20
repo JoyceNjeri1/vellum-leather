@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+:root {
+  /* Luxury-industrial base palette (Tailwind v4 uses @theme below) */
+  --background: #F5F2EC; /* cream */
+  --foreground: #0B0B0B; /* black */
+}
+
+@theme inline {
+  --color-vellum-black: #0B0B0B;
+  --color-vellum-brown: #3B2F2F;
+  --color-vellum-cream: #F5F2EC;
+  --color-vellum-gold: #C6A962;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0B0B0B; /* black */
+    --foreground: #F5F2EC; /* cream */
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
