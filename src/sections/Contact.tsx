@@ -1,6 +1,7 @@
  "use client";
 
 import Reveal from "../components/Reveal";
+import { siteContent } from "../data/siteContent";
 
 export default function Contact() {
   return (
@@ -12,25 +13,23 @@ export default function Contact() {
               CONTACT
             </p>
             <h2 className="mt-4 text-3xl font-semibold leading-[1.1] tracking-tight sm:text-4xl">
-              Request pricing, samples, or production support.
+              {siteContent.contact.heading}
             </h2>
             <p className="mt-4 text-base leading-7 text-[#F5F2EC]/80">
-              Tell us what you're building and we'll respond with the right
-              materials and process guidance.
+              {siteContent.contact.intro}
             </p>
 
             <div className="mt-8 rounded-3xl border border-[#C6A962]/20 bg-white/5 p-6">
               <p className="text-xs font-semibold tracking-[0.18em] text-[#C6A962]">
-                Vellum Leather Ltd
+                {siteContent.brand.companyName}
               </p>
               <p className="mt-3 text-sm leading-6 text-[#F5F2EC]/85">
-                Salama House, Suite 401
-                <br />
-                Wabera Street
-                <br />
-                P.O Box 3494-00100
-                <br />
-                Nairobi, Kenya
+                {siteContent.contact.addressLines.map((line, index) => (
+                  <span key={line}>
+                    {line}
+                    {index < siteContent.contact.addressLines.length - 1 ? <br /> : null}
+                  </span>
+                ))}
               </p>
 
               <div className="mt-6 space-y-3 text-sm">
@@ -40,8 +39,8 @@ export default function Contact() {
                   </span>
                   <p className="leading-6">
                     Phone:{" "}
-                    <a className="text-[#F5F2EC] underline underline-offset-4 decoration-[#C6A962]/60 hover:decoration-[#C6A962]" href="tel:+254746022204">
-                      +254 746 022204
+                    <a className="text-[#F5F2EC] underline underline-offset-4 decoration-[#C6A962]/60 hover:decoration-[#C6A962]" href={siteContent.contact.phoneHref}>
+                      {siteContent.contact.phone}
                     </a>
                   </p>
                 </div>
@@ -52,8 +51,8 @@ export default function Contact() {
                   </span>
                   <p className="leading-6">
                     Email:{" "}
-                    <a className="text-[#F5F2EC] underline underline-offset-4 decoration-[#C6A962]/60 hover:decoration-[#C6A962]" href="mailto:velllumltd@outlook.com">
-                      velllumltd@outlook.com
+                    <a className="text-[#F5F2EC] underline underline-offset-4 decoration-[#C6A962]/60 hover:decoration-[#C6A962]" href={siteContent.contact.emailHref}>
+                      {siteContent.contact.email}
                     </a>
                   </p>
                 </div>
@@ -64,10 +63,8 @@ export default function Contact() {
           <div className="lg:col-span-7">
             <form
               className="rounded-3xl border border-[#C6A962]/20 bg-white/5 p-6 sm:p-8"
-              onSubmit={(e) => {
-                // Demo-only form UI (no backend in this step).
-                e.preventDefault();
-              }}
+              action="https://formspree.io/f/xpqygoea"
+              method="POST"
             >
               <div className="flex flex-col gap-2">
                 <p className="text-xs font-semibold tracking-[0.18em] text-[#C6A962]">
@@ -77,8 +74,7 @@ export default function Contact() {
                   Tell us what you need
                 </h3>
                 <p className="text-sm leading-6 text-[#F5F2EC]/75">
-                  This form is UI-only right now. We'll connect it to a backend
-                  in the deployment step.
+                  Submissions are sent securely to our inbox.
                 </p>
               </div>
 

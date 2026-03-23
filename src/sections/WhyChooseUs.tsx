@@ -1,24 +1,6 @@
 import HoverCard from "../components/HoverCard";
 import Reveal from "../components/Reveal";
-
-const reasons = [
-  {
-    title: "Full Value Chain",
-    desc: "From raw hides to premium finished leather, managed for consistency.",
-  },
-  {
-    title: "Industrial Reliability",
-    desc: "Process control designed to keep outputs stable across orders.",
-  },
-  {
-    title: "Premium Finishing",
-    desc: "Surface quality engineered to support global brand expectations.",
-  },
-  {
-    title: "Quality Documentation",
-    desc: "Clear checks and communication so you know what to expect.",
-  },
-] as const;
+import { siteContent } from "../data/siteContent";
 
 export default function WhyChooseUs() {
   return (
@@ -68,7 +50,7 @@ export default function WhyChooseUs() {
         </div>
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {reasons.map((r) => (
+          {siteContent.whyChooseUs.map((r) => (
             <HoverCard
               key={r.title}
               className="rounded-3xl border border-[#3B2F2F]/15 bg-white/70 p-6"

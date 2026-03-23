@@ -1,24 +1,6 @@
 import HoverCard from "../components/HoverCard";
 import Reveal from "../components/Reveal";
-
-const expertise = [
-  {
-    title: "Raw Material Sourcing",
-    desc: "Sourcing raw hides with consistent standards to support stable processing outcomes.",
-  },
-  {
-    title: "Wet Blue Processing",
-    desc: "Controlled wet blue steps engineered for uniformity and dependable downstream finishing.",
-  },
-  {
-    title: "Finishing",
-    desc: "Premium finishing designed to deliver surface quality that elevates the final product.",
-  },
-  {
-    title: "Quality Assurance",
-    desc: "Measured inspections and documentation so what you receive matches what you expect.",
-  },
-] as const;
+import { siteContent } from "../data/siteContent";
 
 export default function Expertise() {
   return (
@@ -38,7 +20,7 @@ export default function Expertise() {
         </div>
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {expertise.map((item) => (
+          {siteContent.expertise.map((item) => (
             <HoverCard
               key={item.title}
               className="group relative overflow-hidden rounded-3xl border border-[#C6A962]/18 bg-white/5 p-6"

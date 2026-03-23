@@ -1,4 +1,5 @@
 import Reveal from "../components/Reveal";
+import { siteContent } from "../data/siteContent";
 
 export default function About() {
   return (
@@ -11,32 +12,24 @@ export default function About() {
             </p>
 
             <h2 className="mt-4 text-3xl font-semibold leading-[1.1] tracking-tight sm:text-4xl">
-              Nairobi leather processing, built for consistency.
+              {siteContent.about.title}
             </h2>
 
             <div className="mt-6 space-y-4 text-sm leading-7 text-[#3B2F2F]/90 sm:text-base">
-              <p>
-                Vellum Leather Limited is a Nairobi-based leather processing
-                company operating across the full value chain — from raw hides to
-                premium finished leather.
-              </p>
-              <p>
-                We combine industrial reliability with timeless craft, so each
-                hide moves from processing to finishing with measured quality
-                at every step.
-              </p>
+              {siteContent.about.paragraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
             </div>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <span className="rounded-full border border-[#3B2F2F]/20 bg-white/70 px-4 py-2 text-xs font-semibold tracking-[0.16em] text-[#3B2F2F]">
-                INDUSTRIAL QUALITY
-              </span>
-              <span className="rounded-full border border-[#3B2F2F]/20 bg-white/70 px-4 py-2 text-xs font-semibold tracking-[0.16em] text-[#3B2F2F]">
-                TIMELINE FOR SUPPLY
-              </span>
-              <span className="rounded-full border border-[#3B2F2F]/20 bg-white/70 px-4 py-2 text-xs font-semibold tracking-[0.16em] text-[#3B2F2F]">
-                FINISH-READY LEATHER
-              </span>
+              {siteContent.about.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-[#3B2F2F]/20 bg-white/70 px-4 py-2 text-xs font-semibold tracking-[0.16em] text-[#3B2F2F]"
+                >
+                  {tag}
+                </span>
+              ))}
             </div>
           </div>
 

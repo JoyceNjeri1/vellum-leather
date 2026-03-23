@@ -1,4 +1,5 @@
 import Reveal from "../components/Reveal";
+import { siteContent } from "../data/siteContent";
 
 export default function Hero() {
   const glow =
@@ -24,44 +25,26 @@ export default function Hero() {
             href="#top"
             className="text-sm font-semibold tracking-[0.24em] text-[#C6A962]"
           >
-            VELLUM LEATHER LTD
+            {siteContent.brand.displayName}
           </a>
 
           <nav className="hidden items-center gap-6 md:flex" aria-label="Primary">
-            <a className="text-sm text-[#F5F2EC]/75 hover:text-[#F5F2EC]" href="#about">
-              About
-            </a>
-            <a
-              className="text-sm text-[#F5F2EC]/75 hover:text-[#F5F2EC]"
-              href="#expertise"
-            >
-              Expertise
-            </a>
-            <a
-              className="text-sm text-[#F5F2EC]/75 hover:text-[#F5F2EC]"
-              href="#materials"
-            >
-              Materials
-            </a>
-            <a
-              className="text-sm text-[#F5F2EC]/75 hover:text-[#F5F2EC]"
-              href="#applications"
-            >
-              Applications
-            </a>
-            <a
-              className="text-sm text-[#F5F2EC]/75 hover:text-[#F5F2EC]"
-              href="#why"
-            >
-              Why Choose Us
-            </a>
+            {siteContent.navLinks.map((link) => (
+              <a
+                key={link.href}
+                className="text-sm text-[#F5F2EC]/75 hover:text-[#F5F2EC]"
+                href={link.href}
+              >
+                {link.label}
+              </a>
+            ))}
           </nav>
 
           <a
             href="#contact"
             className="rounded-full border border-[#C6A962]/45 px-4 py-2 text-sm font-medium text-[#F5F2EC] transition-colors hover:bg-[#C6A962]/10"
           >
-            Request a Quote
+            {siteContent.hero.primaryCta}
           </a>
         </div>
       </header>
@@ -72,19 +55,17 @@ export default function Hero() {
             <div className="inline-flex items-center gap-3">
               <span className="h-px w-10 bg-[#C6A962]/60" />
               <span className="text-xs font-semibold tracking-[0.22em] text-[#C6A962]">
-                NAIROBI, KENYA
+                {siteContent.brand.locationLabel}
               </span>
             </div>
 
             <h1 className="mt-6 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl">
-              Authentic Leather.{" "}
-              <span className="text-[#C6A962]">Timeless Craft.</span>
+              {siteContent.hero.headlinePrimary}{" "}
+              <span className="text-[#C6A962]">{siteContent.hero.headlineAccent}</span>
             </h1>
 
             <p className="mt-5 text-base leading-7 text-[#F5F2EC]/85 sm:text-lg">
-              Vellum Leather Limited is a Nairobi-based leather processing company
-              operating across the full value chain — from raw hides to premium
-              finished leather.
+              {siteContent.hero.description}
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -92,45 +73,36 @@ export default function Hero() {
                 href="#contact"
                 className="inline-flex items-center justify-center rounded-full bg-[#C6A962] px-6 py-3 text-sm font-semibold text-[#0B0B0B] transition-colors hover:bg-[#d6ba70]"
               >
-                Request a Quote
+                {siteContent.hero.primaryCta}
               </a>
               <a
                 href="#materials"
                 className="inline-flex items-center justify-center rounded-full border border-[#C6A962]/45 px-6 py-3 text-sm font-semibold text-[#F5F2EC] transition-colors hover:bg-[#C6A962]/10"
               >
-                Explore Materials
+                {siteContent.hero.secondaryCta}
               </a>
             </div>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-3">
-            <div className="rounded-2xl border border-[#C6A962]/20 bg-[#0B0B0B]/50 p-5 backdrop-blur">
-              <p className="text-xs font-semibold tracking-[0.18em] text-[#C6A962]">
-                FULL VALUE CHAIN
-              </p>
-              <p className="mt-2 text-2xl font-semibold">Raw to Finished</p>
-            </div>
-
-            <div className="rounded-2xl border border-[#C6A962]/20 bg-[#0B0B0B]/50 p-5 backdrop-blur">
-              <p className="text-xs font-semibold tracking-[0.18em] text-[#C6A962]">
-                QUALITY ASSURANCE
-              </p>
-              <p className="mt-2 text-2xl font-semibold">Consistent Craft</p>
-            </div>
-
-            <div className="rounded-2xl border border-[#C6A962]/20 bg-[#0B0B0B]/50 p-5 backdrop-blur">
-              <p className="text-xs font-semibold tracking-[0.18em] text-[#C6A962]">
-                GLOBAL PARTNERS
-              </p>
-              <p className="mt-2 text-2xl font-semibold">Built to Supply</p>
-            </div>
+            {siteContent.hero.highlights.map((item) => (
+              <div
+                key={item.label}
+                className="rounded-2xl border border-[#C6A962]/20 bg-[#0B0B0B]/50 p-5 backdrop-blur"
+              >
+                <p className="text-xs font-semibold tracking-[0.18em] text-[#C6A962]">
+                  {item.label}
+                </p>
+                <p className="mt-2 text-2xl font-semibold">{item.value}</p>
+              </div>
+            ))}
           </div>
 
           <div className="flex flex-col gap-2 text-sm text-[#F5F2EC]/70 sm:flex-row sm:items-center sm:gap-6">
-            <span>Industrial premium • Minimal luxury</span>
+            <span>{siteContent.hero.footerNote}</span>
             <span className="inline-flex items-center gap-2">
               <span className="h-1.5 w-1.5 rounded-full bg-[#C6A962]" />
-              Materials-grade leather
+              {siteContent.hero.footerBadge}
             </span>
           </div>
         </div>

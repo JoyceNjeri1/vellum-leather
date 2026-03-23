@@ -1,16 +1,6 @@
 import HoverCard from "../components/HoverCard";
 import Reveal from "../components/Reveal";
-
-const applications = [
-  { name: "Bags", desc: "Structures built to hold shape and elevate finish." },
-  { name: "Shoes", desc: "Surface-ready leather for premium comfort and style." },
-  { name: "Furniture", desc: "Industrial reliability for long-lasting upholstery." },
-  { name: "Belts", desc: "Durable material engineered for daily wear." },
-  {
-    name: "Accessories",
-    desc: "Consistent tone and texture for global product lines.",
-  },
-] as const;
+import { siteContent } from "../data/siteContent";
 
 export default function Applications() {
   return (
@@ -30,7 +20,7 @@ export default function Applications() {
         </div>
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {applications.map((a) => (
+          {siteContent.applications.map((a) => (
             <HoverCard
               key={a.name}
               className="group rounded-3xl border border-[#C6A962]/18 bg-white/5 p-6"

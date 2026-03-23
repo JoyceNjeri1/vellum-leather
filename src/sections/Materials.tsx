@@ -1,14 +1,6 @@
 import HoverCard from "../components/HoverCard";
 import Reveal from "../components/Reveal";
-
-const materials = [
-  { name: "Vegetable-Tanned Leather", note: "Deep character, natural finish." },
-  { name: "Chrome-Tanned Leather", note: "Durable structure for daily use." },
-  { name: "Wet Blue Base", note: "Reliable foundation for premium finishing." },
-  { name: "Finished Full Grain", note: "Refined texture for global brands." },
-  { name: "Suede & Split", note: "Versatile surfaces for accessories." },
-  { name: "Color-Ready Stock", note: "Consistent tone for uniform outcomes." },
-] as const;
+import { siteContent } from "../data/siteContent";
 
 export default function Materials() {
   return (
@@ -28,7 +20,7 @@ export default function Materials() {
         </div>
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {materials.map((m) => (
+          {siteContent.materials.map((m) => (
             <HoverCard
               key={m.name}
               className="group rounded-3xl border border-[#3B2F2F]/15 bg-white/70 p-6"
