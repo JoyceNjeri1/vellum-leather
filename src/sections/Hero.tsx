@@ -1,23 +1,14 @@
 import Reveal from "../components/Reveal";
 import { siteContent } from "../data/siteContent";
+import HeroBackground from "../components/HeroBackground";
 
 export default function Hero() {
-  const glow =
-    "radial-gradient(ellipse at top, rgba(198,169,98,0.26) 0%, rgba(198,169,98,0) 55%)";
-  const vignette =
-    "linear-gradient(180deg, rgba(11,11,11,0.90) 0%, rgba(59,47,47,0.75) 55%, rgba(11,11,11,1) 100%)";
-
   return (
     <section
       id="top"
       className="relative min-h-[100svh] overflow-hidden bg-[#0B0B0B] text-[#F5F2EC]"
     >
-      <div className="absolute inset-0" style={{ backgroundImage: glow }} />
-      <div
-        className="absolute inset-0"
-        style={{ backgroundImage: vignette }}
-        aria-hidden="true"
-      />
+      <HeroBackground />
 
       <header className="absolute left-0 right-0 top-0 z-30">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 sm:py-6">
@@ -49,7 +40,7 @@ export default function Hero() {
         </div>
       </header>
 
-      <Reveal className="relative mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-center px-4 pt-20 pb-10 sm:px-6 sm:pt-24 sm:pb-12">
+      <Reveal className="relative z-10 mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-center px-4 pt-24 pb-12 sm:px-6 sm:pt-28 sm:pb-14">
         <div className="flex flex-col gap-10">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-3">
@@ -59,12 +50,12 @@ export default function Hero() {
               </span>
             </div>
 
-            <h1 className="mt-6 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl">
+            <h1 className="mt-6 text-4xl font-semibold leading-[1.02] tracking-tight sm:text-5xl lg:text-6xl">
               {siteContent.hero.headlinePrimary}{" "}
               <span className="text-[#C6A962]">{siteContent.hero.headlineAccent}</span>
             </h1>
 
-            <p className="mt-5 text-base leading-7 text-[#F5F2EC]/85 sm:text-lg">
+            <p className="mt-5 max-w-xl text-base leading-7 text-[#F5F2EC]/85 sm:text-lg">
               {siteContent.hero.description}
             </p>
 
@@ -88,7 +79,7 @@ export default function Hero() {
             {siteContent.hero.highlights.map((item) => (
               <div
                 key={item.label}
-                className="rounded-2xl border border-[#C6A962]/20 bg-[#0B0B0B]/50 p-5 backdrop-blur"
+                className="rounded-3xl border border-[#C6A962]/25 bg-[#0B0B0B]/45 p-5 backdrop-blur-[2px] shadow-[0_24px_72px_rgba(0,0,0,0.5)]"
               >
                 <p className="text-xs font-semibold tracking-[0.18em] text-[#C6A962]">
                   {item.label}
